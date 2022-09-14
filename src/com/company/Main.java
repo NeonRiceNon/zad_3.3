@@ -1,83 +1,77 @@
 package com.company;
-import java.io.Console;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String a;
-        a = "Summer is the warmest time of the year.";
-       // System.out.println(a);
+        vrGoda b = vrGoda.Summer;
+        System.out.println( b + " is the warmest time of the year." );
+        two(vrGoda.Winter);
+        info();
+
+
+        SrTemp season = new SrTemp(-15, 10, 20, 5); //использование конструктора
+
 
     }
+        public static void two(vrGoda b) {
+            b = vrGoda.Winter;
 
-    public void two(vrGoda b) {
-        b = vrGoda.Winter;
-
-        switch (b) {
-            case Spring:
-                System.out.println("I love winter");
-                break;
-            case Winter:
-                System.out.println("I love spring");
-                break;
-            case Summer:
-                System.out.println("I love summer");
-                break;
-            case Autumn:
-                System.out.println("I love autumn");
-                break;
+            switch (b) {
+                case Spring:
+                    System.out.println("I love spring");
+                    break;
+                case Winter:
+                    System.out.println("I love winter");
+                    break;
+                case Summer:
+                    System.out.println("I love summer");
+                    break;
+                case Autumn:
+                    System.out.println("I love autumn");
+                    break;
+            }
         }
-    }
+            public static void info () {
 
-    public class Winter extends Main {
-        public void getDescription(String time) {
-            time = "Cold season";
-            System.out.println(time);
-        }
-    }
-
-    public class Summer extends Main {
-       // @Override
-        public void getDescription(String time) {
-            time = "Warm season";
-            System.out.println(time);
-        }
-    }
-
-    public class info{
-        public void info (vrGoda[] String ) {
-            String[] b = new String[4];
-            b[1] = "Ср.температура = -15; " +
-                    " Холодное время года и много сугробов";
-            b[2] = "Ср.температура =10; "
-                    + "Теплое время года, когда все расцветает";
-            b[3] = "Ср.температура = 20; " +
-                    " Жаркое время года и много свежих овощей и фруктов";
-            b[4] = "Ср.температура = 5; " +
-                    "Дождливое время года с разноцветными листьями";
+            String[] b = new String[5];
+            b[1] = vrGoda.Winter +" - " + "Ср.температура = -15; " +
+                " Холодное время года и много сугробов";
+            b[2] = vrGoda.Spring+" - " + "Ср.температура =10; "
+                + "Теплое время года, когда все расцветает";
+            b[3] = vrGoda.Summer+" - " + "Ср.температура = 20; " +
+                " Жаркое время года и много свежих овощей и фруктов";
+            b[4] = vrGoda.Autumn+" - " + "Ср.температура = 5; " +
+                "Дождливое время года с разноцветными листьями";
 
             int i;
-            for (i = 0; i < 5; i++)
-            System.out.println(b[i]);
-        }
-    }
-}
+            for (i = 0; i <= 4; i++)
+                System.out.println(b[i]);
+            }
 
-enum vrGoda{
-    Winter{
+            public void getDescription(){
+                String a ="Холодное время года";
+                return;
+            }
+    }
+
+enum vrGoda {   //перечисление
+    Winter {
         int sr = -15;
-        String a = "холодное время года и много сугробов";
+        String a = "холодное время года";
     },
-    Spring{
+    Spring {
         int sr = 10;
-        String a = "теплое время года, когда все расцветает";
+        String a = "теплое время года";
     },
-    Summer{
+    Summer {
         int sr = 20;
-        String a = "жаркое время года и много свежих овощей и фруктов";
+        String a = "жаркое время года";
+        //@Override
+        public String getDescription(){
+            return "Теплое время года";
+        }
     },
-    Autumn{
+    Autumn {
         int sr = 5;
-        String a = "дождливое время года с разноцветными листьями";
+        String a = "дождливое время года";
     };
 }
